@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  payrollwebsite:
+    image: payrollwebsite
+    build:
+      context: .
+      dockerfile: PayrollWebsite\Dockerfile
