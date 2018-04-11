@@ -1,0 +1,37 @@
+@page
+@model PayrollWebsite.Pages.Payroll.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Payroll</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Payroll.StartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Payroll.StartDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Payroll.StopDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Payroll.StopDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Payroll.Employee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Payroll.Employee.EmployeeId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Payroll.PayrollId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

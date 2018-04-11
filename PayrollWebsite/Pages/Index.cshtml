@@ -1,0 +1,66 @@
+﻿@page
+@model PayrollWebsite.Pages.IndexModel
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<h2>Upload</h2>
+<hr />
+
+<h3>Upload Timesheet</h3>
+<div class="row" >
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group" hidden="hidden">
+                <label asp-for="FileUpload.FileName" class="control-label"></label>
+                <input asp-for="FileUpload.FileName" type="text" class="form-control" />
+                <span asp-validation-for="FileUpload.FileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileUpload.Timesheet" class="control-label"></label>
+                <input asp-for="FileUpload.Timesheet" type="file" class="form-control" style="height:auto" />
+                <span asp-validation-for="FileUpload.Timesheet" class="text-danger"></span>
+            </div>
+            <input type="submit" value="Upload" class="btn btn-default" />
+            <p>@ViewData["Error Message"]</p>
+        </form>
+    </div>
+</div>
+
+<div @ViewData["Show Report"]>
+    <h3>Payroll Report</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PayrollReport[0].EmployeeId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PayrollReport[0].PayPeriod)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.PayrollReport[0].Amount)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PayrollReport)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PayPeriod)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

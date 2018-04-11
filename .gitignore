@@ -3,3 +3,6 @@
 ################################################################################
 
 /PayrollWebsite/bin/Debug/netcoreapp2.0
+/obj/Docker
+/.vs/PayrollWebsite/v15
+/PayrollWebsite/obj
