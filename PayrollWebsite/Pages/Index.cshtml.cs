@@ -43,8 +43,10 @@ namespace PayrollWebsite.Pages
             }
 
             IFileProcessor fileProcessor = new TimesheetFileProcessor();
+            int reportId;
             string errorString;
-            fileProcessor.ProcessFile(FileUpload.Timesheet, _context, out errorString);
+
+            fileProcessor.ProcessFile(FileUpload.Timesheet, _context, out reportId, out errorString);
 
             if(!string.IsNullOrEmpty(errorString))
             {
@@ -118,15 +120,21 @@ namespace PayrollWebsite.Pages
             //_context.SaveChanges();
 
 
-            PayrollReport = new PayrollReport[]
-            {
-                new PayrollReport{EmployeeId=1, StartDate=DateTime.Parse("1/1/2011"), EndDate=DateTime.Parse("1/15,2011"), Amount=100},
-                new PayrollReport{EmployeeId=1, StartDate=DateTime.Parse("1/16/2011"), EndDate=DateTime.Parse("1/31,2011"), Amount=100}
-            };
-            
-            if(PayrollReport.Count > 0)
-            {
-            }
+            //PayrollReport = new PayrollReport[]
+            //{
+            //    new PayrollReport{EmployeeId=1, StartDate=DateTime.Parse("1/1/2011"), EndDate=DateTime.Parse("1/15,2011"), Amount=100},
+            //    new PayrollReport{EmployeeId=1, StartDate=DateTime.Parse("1/16/2011"), EndDate=DateTime.Parse("1/31,2011"), Amount=100}
+            //};
+
+            //if(PayrollReport.Count > 0)
+            //{
+            //}
+
+            var timesheet = _context.Report.FirstOrDefault(x => x.ReportId == reportId).Timesheets.OrderBy(x => x.Date).ToList();
+            var startDate = timesheet.First().Date;
+            var endDate = timesheet.Last().Date;
+
+            PayrollReport = _context.GetPayrolls(startDate, endDate);
 
             return Page();
         }

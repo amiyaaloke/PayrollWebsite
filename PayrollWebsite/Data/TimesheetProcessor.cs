@@ -17,14 +17,13 @@ namespace PayrollWebsite.Data
         private const string COL_HOURSWORKED = "hours worked";
         private const string COL_JOBCODE = "job group";
 
-        public void ProcessFile(IFormFile timesheet, DbContext context, out string errorString)
+        public void ProcessFile(IFormFile timesheet, DbContext context, out int reportId, out string errorString)
         {
             DataTable dt = FileHelpers.Csv2Table(timesheet, ",");
 
             PayrollContext payrollContext = context as PayrollContext;
 
             // Validate report with report id
-            int reportId;
             errorString = ExtractAndValidateReportId(dt, payrollContext, out reportId);
 
             if(!string.IsNullOrEmpty(errorString))

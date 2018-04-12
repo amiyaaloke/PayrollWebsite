@@ -13,7 +13,5 @@ namespace PayrollWebsite.Model
 
         public string JobCode { get; set; }
         public Decimal HourlyRate { get; set; }
-
-        //public ICollection<Employee> Employees { get; set; }
     }
 }

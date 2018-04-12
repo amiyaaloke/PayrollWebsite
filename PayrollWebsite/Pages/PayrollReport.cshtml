@@ -1,0 +1,71 @@
+﻿@page
+@model PayrollWebsite.Pages.PayrollReportModel
+@{
+    ViewData["Title"] = "";
+}
+
+<h2>PayrollReport</h2>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                <label asp-for="EndDate" class="control-label"></label>
+                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+            </div>
+            <input type="submit" value="Generate Report" class="btn btn-default" />
+        </form>
+    </div>
+</div>
+
+@*<div class="form-group">
+    @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+    </div>
+    @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+    </div>
+    <input type="submit" value="Generate" class="btn btn-default" />
+</div>*@
+
+<div id="myTable1div">
+    <h3>Payroll Report</h3>
+    <table class="table" id="Table1">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PayrollReport[0].EmployeeId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PayrollReport[0].PayPeriod)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.PayrollReport[0].Amount)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PayrollReport)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PayPeriod)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

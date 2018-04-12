@@ -9,6 +9,6 @@ namespace PayrollWebsite.Data
 {
     interface IFileProcessor
     {
-        void ProcessFile(IFormFile file, DbContext context, out string errorString);
+        void ProcessFile(IFormFile file, DbContext context, out int reportId, out string errorString);
     }
 }
