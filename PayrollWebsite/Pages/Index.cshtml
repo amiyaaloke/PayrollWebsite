@@ -3,12 +3,13 @@
 @{
     ViewData["Title"] = "Upload";
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <h2>Upload</h2>
 <hr />
 
 <h3>Upload Timesheet</h3>
-<div class="row" >
+<div class="row">
     <div class="col-md-4">
         <form method="post" enctype="multipart/form-data">
             <div class="form-group" hidden="hidden">
@@ -22,14 +23,14 @@
                 <span asp-validation-for="FileUpload.Timesheet" class="text-danger"></span>
             </div>
             <input type="submit" value="Upload" class="btn btn-default" />
-            <p>@ViewData["Error Message"]</p>
+            <p></p>
         </form>
     </div>
 </div>
 
-<div @ViewData["Show Report"]>
+<div hidden id="myTable1div">
     <h3>Payroll Report</h3>
-    <table class="table">
+    <table class="table" id="Table1">
         <thead>
             <tr>
                 <th>
@@ -64,3 +65,21 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+    $(function () {
+        var hide = true;
+
+        $('#Table1 td').each(function () {
+            var td_content = $(this).text();
+
+            if (td_content != "") {
+                hide = false;
+            }
+        })
+
+        if (!hide) {
+            $('#myTable1div').show();
+        }
+    })
+</script>

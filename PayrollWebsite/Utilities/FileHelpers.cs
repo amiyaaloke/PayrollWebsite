@@ -46,8 +46,8 @@ namespace PayrollWebsite.Utilities
 
             if (formFile.ContentType.ToLower() != "text/plain")
             {
-                modelState.AddModelError(formFile.Name,
-                                         $"The {fieldDisplayName}file ({fileName}) must be a text file.");
+                //modelState.AddModelError(formFile.Name,
+                //                         $"The {fieldDisplayName}file ({fileName}) must be a text file.");
             }
 
             // Check the file length and don't bother attempting to
@@ -109,7 +109,7 @@ namespace PayrollWebsite.Utilities
             return string.Empty;
         }
 
-        public static DataTable CsvDb(IFormFile formFile, string separatorChar)
+        public static DataTable Csv2Table(IFormFile formFile, string separatorChar)
         {
             var table = new DataTable("Filecsv");
             using (var sr = new StreamReader(

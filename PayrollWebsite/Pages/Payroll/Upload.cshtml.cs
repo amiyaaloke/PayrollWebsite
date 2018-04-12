@@ -49,7 +49,7 @@ namespace PayrollWebsite.Pages.Payroll
 
             var fileName = WebUtility.HtmlEncode(Path.GetFileName(FileUpload.Timesheet.FileName));
 
-            DataTable dt = FileHelpers.CsvDb(FileUpload.Timesheet, ",");
+            DataTable dt = FileHelpers.Csv2Table(FileUpload.Timesheet, ",");
 
             const string COL_EMPID = "employee id";
             const string COL_DATE = "date";
