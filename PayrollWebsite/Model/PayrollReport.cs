@@ -18,7 +18,7 @@ namespace PayrollWebsite.Model
         [DisplayName("Pay Period")]
         public string PayPeriod
         {
-            get { return StartDate.Date.ToString("d/m/yyyy") + " - " + EndDate.Date.ToString("d/m/yyyy"); }
+            get { return StartDate.ToString("dd/M/yyyy", CultureInfo.InvariantCulture) + " - " + EndDate.ToString("dd/M/yyyy", CultureInfo.InvariantCulture); }
 
             private set { }
         }
