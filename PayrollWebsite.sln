@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayrollWebsite", "PayrollWebsite\PayrollWebsite.csproj", "{CEFCB472-A487-4E31-B755-E5D0A1764E64}"
-EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{656FC39A-C065-4D29-AA65-8BB66EBF5BA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{CEFCB472-A487-4E31-B755-E5D0A1764E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEFCB472-A487-4E31-B755-E5D0A1764E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEFCB472-A487-4E31-B755-E5D0A1764E64}.Release|Any CPU.Build.0 = Release|Any CPU
-		{656FC39A-C065-4D29-AA65-8BB66EBF5BA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{656FC39A-C065-4D29-AA65-8BB66EBF5BA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{656FC39A-C065-4D29-AA65-8BB66EBF5BA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{656FC39A-C065-4D29-AA65-8BB66EBF5BA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
